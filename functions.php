@@ -1,8 +1,7 @@
 <?php
 
-function wp2k_scripts() {
+require 'library/theme-setup.php';
 
-	wp_enqueue_style( 'wp2k-style', get_stylesheet_uri() );
+require 'library/custom-types.php';
 
-}
-add_action( 'wp_enqueue_scripts', 'wp2k_scripts' );
+require 'library/scripts-styles.php';
