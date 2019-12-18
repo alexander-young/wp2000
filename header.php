@@ -5,35 +5,32 @@ defined('ABSPATH') || exit;
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="bg-white antialiased">
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('font-body text-lg leading-relaxed'); ?>>
 
 <div class="site" id="page">
 
-	<div id="wrapper-navbar">
+	<div class="w-full shadow-lg py-3">
 
-		<nav class="navbar">
+		<div class="w-full max-w-6xl mx-auto flex justify-between">
 
-			<div class="container">
+			<img src="<?= get_stylesheet_directory_uri() ?> /assets/dist/img/logo.svg" />
 
-				<?php wp_nav_menu(
-          array(
-            'theme_location' => 'primary',
-            'menu_class' => 'navbar-nav',
-            'fallback_cb' => '',
-            'menu_id' => 'main-menu',
-            'depth' => 1,
-          )
-        ); ?>
+			<nav>
 
-			</div>
+					<?php wp_nav_menu([
+						'theme_location' => 'main_menu',
+						'container_class' => 'py-2',
+					]); ?>
 
-		</nav>
+			</nav>
+
+		</div>
 
 	</div>
