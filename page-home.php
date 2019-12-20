@@ -8,10 +8,12 @@ get_header();
 
 <main id="main">
 
-  <div class="hero flex items-center justify-center w-full bg-gray-500 bg-cover bg-fixed" style="background-image: url('https://images.pexels.com/photos/2029715/pexels-photo-2029715.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1150&w=1640');">
-    <div class="text-center">
-      <h1 class="h1 text-gray-100 mb-10">WP2K Homes</h1>
-      <a href="/" class="button">Browse Floorplans</a>
+  <div class="hero flex items-end justify-end w-full bg-gray-500 bg-cover bg-fixed" style="background-image: url('https://images.pexels.com/photos/2029715/pexels-photo-2029715.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1150&w=1640');">
+    <div class="container">
+      <div class="ml-auto max-w-xl py-6 pl-20 pr-10 text-right text-white bg-transparent-black">
+        <h1 class="h2 text-gray-100 mb-4">Your Dream Home Awaits</h1>
+        <a href="/">Browse Floorplans <i class="las la-arrow-right"></i></a>
+      </div>
     </div>
   </div> 
 
@@ -40,29 +42,29 @@ get_header();
   </div>
 
 
-  <div class="px-4">
+  <div class="container">
     <div class="flex flex-wrap -mx-4">
 
-      <div class="w-full order-last md:order-first md:w-1/2 py-24 px-16 md:py-48 md:px-32">
+      <div class="w-full order-last md:order-first md:w-1/2 py-24 px-16 md:py-48 md:px-30">
         <h5 class="text-primary-light inline-block uppercase pb-3 text-sm tracking-widest border-b-2 border-primary mb-8">Full-Service Design</h5>
         <div class="h2 mb-8">Custom Interior Design</div>
         <p class="mb-10">Take your design to the next level with Miya Interiors’ full-service design process. Your space is an extension of who you are, why not design it through-and-through? Miya Interiors collaborates with you every step of the way to make your space 100% you.</p>
         <a href="/" class="button">Learn More</a>
       </div>
 
-      <div class="w-full order-first md:order-last md:w-1/2 md:-mt-12 md:pl-4">
+      <div class="w-full order-first md:order-last md:w-1/2 md:-mt-12 md:px-4">
         <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=780&q=80" class="object-cover h-full w-full" />
       </div>
 
     </div>
   </div>
 
-  <div class="px-4 mb-20">
+  <div class="container mb-20">
     <div class="flex flex-wrap -mx-4">
-      <div class="w-full md:w-1/2 md:-mt-12 md:pl-4">
+      <div class="w-full md:w-1/2 md:-mt-12 md:px-4">
         <img src="https://images.pexels.com/photos/1070872/pexels-photo-1070872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="object-cover h-full w-full" />
       </div>
-      <div class="w-full md:w-1/2 py-24 px-16 md:py-48 md:px-32">
+      <div class="w-full md:w-1/2 py-24 px-16 md:py-48 md:px-30">
         <h5 class="text-primary-light inline-block uppercase pb-3 text-sm tracking-widest border-b-2 border-primary mb-8">Full-Service Design</h5>
         <div class="h2 mb-8">Visualize Your Space</div>
         <p class="mb-10">Take your design to the next level with Miya Interiors’ full-service design process. Your space is an extension of who you are, why not design it through-and-through? Miya Interiors collaborates with you every step of the way to make your space 100% you.</p>
