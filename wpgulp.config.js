@@ -13,7 +13,7 @@ module.exports = {
 	projectURL: 'wp2000.local', // Local project URL of your already running WordPress site. Could be something like wpgulp.local or localhost:3000 depending upon your local WordPress setup.
 	productURL: './', // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 	browserAutoOpen: false,
-	injectChanges: true,
+	injectChanges: false,
 
 	// Style options.
 	styleSRC: './assets/src/css/style.pcss', // Path to main .scss file.
@@ -28,9 +28,9 @@ module.exports = {
 	jsVendorFile: 'vendor', // Compiled JS vendors file name. Default set to vendors i.e. vendors.js.
 
 	// JS Custom options.
-	jsCustomSRC: './assets/src/js/custom/*.js', // Path to JS custom scripts folder.
-	jsCustomDestination: './dist/assets/js/', // Path to place the compiled JS custom scripts file.
-	jsCustomFile: 'custom', // Compiled JS custom file name. Default set to custom i.e. custom.js.
+	jsCustomSRC: './assets/src/js/custom/**/*.js', // Path to JS custom scripts folder.
+	jsCustomDestination: './assets/dist/js/', // Path to place the compiled JS custom scripts file.
+	jsCustomFile: 'main', // Compiled JS custom file name. Default set to custom i.e. custom.js.
 
 	// Images options.
 	imgSRC: './assets/src/img/**/*', // Source folder of images which should be optimized and watched. You can also specify types e.g. raw/**.{png,jpg,gif} in the glob.
@@ -39,7 +39,7 @@ module.exports = {
 	// Watch files paths.
 	watchStyles: './assets/src/css/**/*.pcss', // Path to all *.scss files inside css folder and inside them.
 	watchJsVendor: './assets/src/js/vendor/*.js', // Path to all vendor JS files.
-	watchJsCustom: './assets/src/js/custom/*.js', // Path to all custom JS files.
+	watchJsCustom: './assets/src/js/custom/**/*.js', // Path to all custom JS files.
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.
