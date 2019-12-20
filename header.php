@@ -18,18 +18,25 @@ defined('ABSPATH') || exit;
 
 	<div class="w-full shadow-lg py-3">
 
-		<div class="w-full max-w-6xl mx-auto flex justify-between">
+		<div class="container flex justify-between md:justify-end py-2 text-gray-800 text-sm md:text-base">
+			<a href="tel:123-456-7890" class="inline-block mr-8"><i class="las la-phone"></i> 123.456.7890</a>
+			<a href="mailto:me@example.com"><i class="hidden sm:inline-block las la-envelope"></i> me@example.com</a>
+		</div>
 
-			<img src="<?= get_stylesheet_directory_uri() ?> /assets/dist/img/logo.svg" />
+		<div class="container flex items-center justify-between relative">
 
-			<nav>
+			<h2>LOGO GOES HERE</h2>
 
+			<nav class="main-menu hidden md:block">
 					<?php wp_nav_menu([
 						'theme_location' => 'main_menu',
-						'container_class' => 'py-2',
+						'container_class' => '',
 					]); ?>
-
 			</nav>
+
+			<button class="menu-toggle block md:hidden">
+				<i class="las la-2x la-bars"></i>
+			</button>
 
 		</div>
 
