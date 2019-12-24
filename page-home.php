@@ -10,7 +10,7 @@ get_header();
 
   <div class="hero flex items-end justify-end w-full bg-gray-500 bg-cover bg-fixed" style="background-image: url('https://images.pexels.com/photos/2029715/pexels-photo-2029715.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1150&w=1640');">
     <div class="container">
-      <div class="ml-auto max-w-xl py-6 pl-20 pr-10 text-right text-white bg-transparent-black">
+      <div class="ml-auto max-w-xl py-6 px-4 md:pl-20 md:pr-10 text-right text-white bg-transparent-black">
         <h1 class="h2 text-gray-100 mb-4">Your Dream Home Awaits</h1>
         <a href="/">Browse Floorplans <i class="las la-arrow-right"></i></a>
       </div>
@@ -31,12 +31,21 @@ get_header();
     </div>
     <div class="container">
       <div class="flex flex-wrap -mx-2 mb-12">
-        <?php get_template_part('template-parts/floorplan', 'card'); ?>
-        <?php get_template_part('template-parts/floorplan', 'card'); ?>
-        <?php get_template_part('template-parts/floorplan', 'card'); ?>
+        <?php 
+        
+          $query = new WP_Query([
+            'post_type' => 'floorplan',
+            'posts_per_page' => 3
+          ]);
+
+          if($query->have_posts()): while($query->have_posts()): $query->the_post();
+            get_template_part('template-parts/floorplan', 'card'); 
+          endwhile; endif;
+
+          ?>
       </div>
       <div class="text-center">
-        <a href="/" class="button">See All Floorplans</a>
+        <a href="<?php echo get_post_type_archive_link('floorplan')?>" class="button">See All Floorplans</a>
       </div>
     </div>
   </div>
