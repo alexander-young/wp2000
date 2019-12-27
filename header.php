@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class('font-body text-lg leading-relaxed'); ?>>
+<body <?php body_class('font-body text-lg leading-relaxed text-gray-700'); ?>>
 
 <div class="site" id="page">
 
