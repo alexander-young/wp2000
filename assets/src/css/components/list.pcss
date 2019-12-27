@@ -1,0 +1,8 @@
+.dot-separated {
+  li:not(:last-child){
+    &:after{
+      content: "\00B7";
+      @apply ml-1 text-primary;
+    }
+  }
+}

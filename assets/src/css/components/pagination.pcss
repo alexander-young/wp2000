@@ -1,0 +1,10 @@
+.page-numbers {
+  @apply p-2 mx-1 border-2 border-primary-light text-primary-light;
+  transition: background 0.2s, color 0.2s;
+  &:hover:not(.current) {
+    @apply border-primary bg-primary text-white;
+  }
+  &.current{
+    @apply text-white bg-primary-light
+  }
+}
