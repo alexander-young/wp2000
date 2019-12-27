@@ -1,22 +1,24 @@
 const sortForm = document.getElementById( 'floorplan_sorting' );
-const archiveLoop = document.getElementById( 'floorplan_archive_loop' );
 
+if ( null !== sortForm ) {
 
-sortForm.addEventListener( 'change', e => {
-	const target = e.currentTarget;
-	const orderby =  target.options[target.selectedIndex].value;
+	sortForm.addEventListener( 'change', e => {
 
-	fetch( `/api/floorplan_sorting/${orderby}` ).then( response => {
+		const target = e.currentTarget;
+		const orderby =  target.options[target.selectedIndex].value;
+		const query = new URLSearchParams( window.location.search );
 
-		response.json().then( HTML => {
+		query.delete( 'orderby' );
+		query.delete( 'order' );
 
-			if ( HTML ) {
-				archiveLoop.innerHTML = HTML;
-			}
-
-		});
+		if ( 'title' === orderby ) {
+			query.set( 'orderby', 'title' );
+			query.set( 'order', 'ASC' );
+		} else {
+			query.set( 'orderby', 'date' );
+			query.set( 'order', 'DESC' );
+		}
+		window.location.href = '?' + query.toString();
 
 	});
-
-
-});
+}
