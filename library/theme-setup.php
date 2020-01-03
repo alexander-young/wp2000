@@ -10,6 +10,8 @@ function wp2k_theme_setup(){
 		'main_menu' => 'Primary',
 	]);
 
+	add_theme_support('yoast-seo-breadcrumbs');
+
 	add_image_size('full-width', 1280, 9999, false);
 
 }

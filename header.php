@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
 
 <div class="site" id="page">
 
-	<div class="w-full shadow-lg py-3">
+	<div class="w-full shadow-md py-3">
 
 		<div class="container flex justify-between lg:justify-end py-2 text-gray-800 text-sm lg:text-base">
 			<a href="tel:123-456-7890" class="inline-block mr-8"><i class="las la-phone"></i> 123.456.7890</a>
@@ -26,7 +26,7 @@ defined('ABSPATH') || exit;
 		<div class="container">
 			<div class="inner-container flex items-center justify-between relative">
 
-				<h2 class="column">LOGO GOES HERE</h2>
+				<h2 class="column"><a href="/">LOGO GOES HERE</a></h2>
 
 				<nav class="main-menu hidden lg:block column">
 						<?php wp_nav_menu([
@@ -43,3 +43,15 @@ defined('ABSPATH') || exit;
 		</div>
 
 	</div>
+
+	<?php if (!is_front_page() && function_exists('yoast_breadcrumb')): ?>
+	<div class="container mt-10">
+		<div class="inner-container">
+				<div class="column">
+					<?php
+						yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+					?>
+				</div>
+		</div>
+	</div>
+	<?php endif; ?>
