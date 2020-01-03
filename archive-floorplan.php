@@ -27,11 +27,7 @@ get_header();
         endwhile; endif;  
       ?>
     </div>
-    <div class="inner-container flex justify-center pt-10">
-        <div class="column">
-          <?php echo paginate_links(); ?>
-        </div>
-    </div>
+    <?php get_template_part('template-parts/loop/pagination'); ?>
   </div>
 
 </main>
