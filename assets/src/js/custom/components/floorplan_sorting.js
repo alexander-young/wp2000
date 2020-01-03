@@ -1,6 +1,6 @@
 const sortForm = document.getElementById( 'floorplan_sorting' );
 
-if ( null !== sortForm ) {
+if ( sortForm ) {
 
 	sortForm.addEventListener( 'change', e => {
 
@@ -18,7 +18,8 @@ if ( null !== sortForm ) {
 			query.set( 'orderby', 'date' );
 			query.set( 'order', 'DESC' );
 		}
-		window.location.href = '?' + query.toString();
+
+		window.location.href = '/floorplans/?' + query.toString();
 
 	});
 }
