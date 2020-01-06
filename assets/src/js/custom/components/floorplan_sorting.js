@@ -2,16 +2,21 @@ const sortForm = document.getElementById( 'floorplan_sorting' );
 
 if ( sortForm ) {
 
-	sortForm.addEventListener( 'change', e => {
+	sortForm.addEventListener( 'submit', e => {
 
-		const target = e.currentTarget;
-		const orderby =  target.options[target.selectedIndex].value;
+		e.preventDefault();
+
+		const homeTypes = sortForm.querySelectorAll( 'input[name="home_type[]"]:checked' );
 		const query = new URLSearchParams( window.location.search );
+
+		let orderBy = sortForm.querySelector( 'select' );
+		orderBy = orderBy.options[orderBy.selectedIndex].value;
 
 		query.delete( 'orderby' );
 		query.delete( 'order' );
+		query.delete( 'home_type[]' );
 
-		if ( 'title' === orderby ) {
+		if ( 'title' === orderBy ) {
 			query.set( 'orderby', 'title' );
 			query.set( 'order', 'ASC' );
 		} else {
@@ -19,7 +24,19 @@ if ( sortForm ) {
 			query.set( 'order', 'DESC' );
 		}
 
-		window.location.href = '/floorplans/?' + query.toString();
+		homeTypes.forEach( type => {
+			query.append( 'home_type[]', type.value );
+		});
+
+		const urlParams = query.toString();
+
+		if ( 0 < urlParams.length ) {
+			window.location.href = '/floorplans/?' + query.toString();
+		} else {
+			window.location.href = '/floorplans/';
+		}
+
 
 	});
+
 }
