@@ -6,3 +6,25 @@
     transform: translateY(-50%);
   }
 }
+
+select{
+  @apply border-2 bg-white appearance-none rounded-none text-gray-700 leading-tight;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  @apply appearance-none border-2 w-full py-2 px-3 text-gray-700 leading-tight;
+}
+
+#search {
+  @apply border-r-0;
+}
+
+#contact-form{
+  input,
+  textarea,
+  select {
+    @apply mb-2;
+  }
+}

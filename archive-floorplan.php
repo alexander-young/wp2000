@@ -10,16 +10,19 @@ get_header();
   <div class="container">
     <div class="inner-container">
       <div class="column">
-        <h1 class="h1 pb-4 mb-12 border-b-2">Our Floor Plans</h1>
+        <h1 class="h1 pb-4 mb-4 border-b-2">Our Floor Plans</h1>
       </div>
     </div>
-    <form class="inner-container flex flex-wrap mb-6">
+    <form class="inner-container flex flex-wrap mb-12">
       <div class="column mr-4 flex flex-wrap items-center">
-        <div class="uppercase text-sm mr-2 font-bold">Sort By:</div>
-        <select name="orderby" id="archive-orderby">
-          <option value="date" <?php echo selected( $_GET['orderby'], 'date'); ?>>Newset</option>
-          <option value="title" <?php echo selected( $_GET['orderby'], 'title'); ?>>Name</option>
-        </select>
+        <label class="uppercase text-sm mr-2 font-bold">Sort By:</label>
+        <div class="relative">
+          <select name="orderby" id="archive-orderby" class="px-2 pb-1 pr-8 border-0 border-b-2">
+            <option value="date" <?php echo selected( $_GET['orderby'], 'date'); ?>>Newset</option>
+            <option value="title" <?php echo selected( $_GET['orderby'], 'title'); ?>>Name</option>
+          </select>
+          <?php select_arrow(); ?>
+        </div>
         <input type="hidden" name="order" value="<?php echo (isset($_GET['order'] ) && $_GET['order'] == 'ASC') ? 'ASC' : 'DESC';  ?>" id="archive-order" />
       </div>
       <div class="column flex flex-wrap items-center">
