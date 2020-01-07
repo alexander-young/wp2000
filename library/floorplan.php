@@ -33,6 +33,30 @@ class Floorplan {
 
   }
 
+  public function get_all_floorplans(){
+
+    $floorplans = get_posts([
+      'posts_per_page' => -1,
+      'post_type' => 'floorplan',
+      'post_status' => 'publish'
+    ]);
+
+    if(! $floorplans ){
+      return false;
+    }
+    
+    $results = array_map( function( $floorplan ){
+      return [
+        'ID' => $floorplan->ID,
+        'slug' => $floorplan->post_name,
+        'title' => $floorplan->post_title
+      ];
+    }, $floorplans);
+
+    return $results;
+
+  }
+
   public function get_floorplan_types(){
 
     $terms = get_terms([
@@ -78,6 +102,16 @@ class Floorplan {
       <li class="inline-block"><?php echo get_post_meta($this->post_id, 'square_footage', true); ?> sqft</li>
     </ul>
     <?php
+  }
+
+  public function display_floorplan_checkbox($type){
+    ?>
+    <label class="inline-checkbox">
+    <input type="checkbox"  name="home_type[]" <?php checked((isset($_GET['home_type']) && in_array($type['slug'], $_GET['home_type']))) ?> value="<?php echo $type['slug']; ?>" />
+        <span class="leading-none"><?php echo $type['name']; ?></span>
+    </label>
+    <?php
+
   }
 
 }
