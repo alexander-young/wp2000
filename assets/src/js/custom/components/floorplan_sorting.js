@@ -1,41 +1,17 @@
-const sortForm = document.getElementById( 'floorplan_sorting' );
+const archiveOrderby = document.getElementById( 'archive-orderby' );
+const archiveOrder = document.getElementById( 'archive-order' );
 
-if ( sortForm ) {
+if ( archiveOrderby && archiveOrder ) {
 
-	sortForm.addEventListener( 'submit', e => {
+	archiveOrderby.addEventListener( 'change', () => {
 
-		e.preventDefault();
+		const orderBy = archiveOrderby.options[archiveOrderby.selectedIndex].value;
 
-		const homeTypes = sortForm.querySelectorAll( 'input[name="home_type[]"]:checked' );
-		const query = new URLSearchParams( window.location.search );
-
-		let orderBy = sortForm.querySelector( 'select' );
-		orderBy = orderBy.options[orderBy.selectedIndex].value;
-
-		query.delete( 'orderby' );
-		query.delete( 'order' );
-		query.delete( 'home_type[]' );
-
-		if ( 'title' === orderBy ) {
-			query.set( 'orderby', 'title' );
-			query.set( 'order', 'ASC' );
+		if ( 'date' === orderBy ) {
+			archiveOrder.value = 'DESC';
 		} else {
-			query.set( 'orderby', 'date' );
-			query.set( 'order', 'DESC' );
+			archiveOrder.value = 'ASC';
 		}
-
-		homeTypes.forEach( type => {
-			query.append( 'home_type[]', type.value );
-		});
-
-		const urlParams = query.toString();
-
-		if ( 0 < urlParams.length ) {
-			window.location.href = '/floorplans/?' + query.toString();
-		} else {
-			window.location.href = '/floorplans/';
-		}
-
 
 	});
 

@@ -13,22 +13,32 @@ get_header();
         <h1 class="h1 pb-4 mb-12 border-b-2">Our Floor Plans</h1>
       </div>
     </div>
-    <form class="inner-container flex flex-wrap content-center mb-6" id="floorplan_sorting">
-      <div class="column mr-4">
-        <div class="inline-block align-middle uppercase text-sm mr-2 font-bold">Sort By:</div>
-        <select name="sort" class="inline-block align-middle">
+    <form class="inner-container flex flex-wrap mb-6">
+      <div class="column mr-4 flex flex-wrap items-center">
+        <div class="uppercase text-sm mr-2 font-bold">Sort By:</div>
+        <select name="orderby" id="archive-orderby">
           <option value="date" <?php echo selected( $_GET['orderby'], 'date'); ?>>Newset</option>
           <option value="title" <?php echo selected( $_GET['orderby'], 'title'); ?>>Name</option>
         </select>
+        <input type="hidden" name="order" value="<?php echo (isset($_GET['order'] ) && $_GET['order'] == 'ASC') ? 'ASC' : 'DESC';  ?>" id="archive-order" />
+      </div>
+      <div class="column flex flex-wrap items-center">
+        <div class="uppercase text-sm mr-4 font-bold">Home Type:</div>
+        <?php
+          $floorplan = new \WP2K\Floorplan();
+          $home_types = $floorplan->get_floorplan_types();
+          foreach($home_types as $type) {
+            ?>
+            <label class="inline-checkbox">
+            <input type="checkbox"  name="home_type[]" <?php checked( (isset($_GET['home_type']) && in_array($type['slug'], $_GET['home_type'])) ) ?> value="<?php echo $type['slug']; ?>" />
+            <span class="leading-none"><?php echo $type['name']; ?></span>
+            </label>
+            <?php
+          }
+        ?>
       </div>
       <div class="column">
-        <div class="inline-block align-middle uppercase text-sm mr-2 font-bold">Home Type:</div>
-        <label class="inline-checkbox"><input type="checkbox" <?php checked( in_array('single-family', $_GET['home_type']) , true) ?>  name="home_type[]" value="single-family" />Single Family</label>
-        <label class="inline-checkbox"><input type="checkbox" <?php checked(in_array('condo', $_GET['home_type']), true) ?> name="home_type[]" value="condo" />Condo</label>
-        <label class="inline-checkbox"><input type="checkbox" <?php checked(in_array('townhome', $_GET['home_type']), true) ?> name="home_type[]" value="townhome" />Townhome</label>
-      </div>
-      <div class="column">
-        <button type="submit" class="button">Apply</button>
+        <button type="submit" class="button small">Apply</button>
       </div>
     </form>
     <div class="inner-container flex flex-wrap" id="floorplan_archive_loop">
