@@ -22,10 +22,23 @@ $floorplan = new \WP2K\Floorplan($post_id);
         <a href="<?php echo home_url('/contact') . '?floorplan=' . get_the_ID(); ?> " class="" download><i class="las la-lg la-question"></i>Request Info</a>
       </div>
     </div>
-
     <div class="inner-container">
       <div class="column">
-        <img src="<?php echo get_field('featured_image')['sizes']['full-width']; ?>" />
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <?php 
+              $images = $floorplan->get_floorplan_images();
+              if(!empty($images)){
+                foreach($images as $image){
+                  echo '<div class="swiper-slide">'.wp_get_attachment_image($image['ID'], 'full-width') .'</div>';
+                }
+              } 
+            ?>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </div>
 

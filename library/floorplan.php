@@ -8,8 +8,47 @@ class Floorplan {
 
   protected $post_id;
 
-  public function __construct( $post_id ){
+  public function __construct( $post_id = false ){
     $this->post_id = $post_id;
+  }
+
+  public function get_floorplan_images() {
+
+    $images = [];
+
+    $featured_image = get_field('featured_image');
+
+    if($featured_image){
+      $images[] = $featured_image;
+    }
+
+    for ($i=1; $i <= 4; $i++) { 
+      $image = get_field('interior_' . $i);
+      if($image){
+        $images[] = $image;
+      }
+    }
+
+    return $images;
+
+  }
+
+  public function get_floorplan_types(){
+
+    $terms = get_terms([
+      'taxonomy' => 'home_type',
+      'hide_empty' => false
+    ]);
+
+    $results = array_map(function( $home_type ){
+      return [
+        'slug' => $home_type->slug,
+        'name' => $home_type->name
+      ];
+    }, $terms);
+
+    return $results;
+    
   }
 
   public function format_floorplan_price( $price ){
