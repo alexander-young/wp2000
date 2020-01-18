@@ -7,10 +7,10 @@ if ( archiveOrderby && archiveOrder ) {
 
 		const orderBy = archiveOrderby.options[archiveOrderby.selectedIndex].value;
 
-		if ( 'date' === orderBy ) {
-			archiveOrder.value = 'DESC';
-		} else {
+		if ( 'title' === orderBy ) {
 			archiveOrder.value = 'ASC';
+		} else {
+			archiveOrder.value = 'DESC';
 		}
 
 	});
