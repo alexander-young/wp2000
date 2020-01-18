@@ -3,7 +3,6 @@
 function floorplan_post_type() {
     register_post_type( 'floorplan', [
       'public' => true,
-      'publicly_queryable' => true,
       'has_archive' => true,
       'rewrite' => [
         'slug' => 'floorplans',
@@ -44,3 +43,15 @@ function add_custom_taxonomies(){
 
 }
 add_action('init', 'add_custom_taxonomies', 0);
+
+function submission_post_Type()
+{
+  register_post_type('submission', [
+    'public' => false,
+    'show_ui' => true,
+    'has_archive' => false,
+    'label' => 'Form Submissions',
+    'menu_icon' => 'dashicons-email-alt'
+  ]);
+}
+add_action('init', 'submission_post_Type');

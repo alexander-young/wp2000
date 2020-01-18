@@ -13,3 +13,5 @@ require 'library/widgets/class-floorplan-cta.php';
 require 'library/shortcodes/contact-form.php';
 
 require 'library/forms/helpers.php';
+
+require 'library/forms/ajax-contact-form.php';

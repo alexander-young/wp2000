@@ -8,16 +8,16 @@
 ?>
 <form id="contact-form">
 
-  <label>First Name*
-    <input type="text" name="first_name" required/>
-  </label>
-
-  <label>Last Name*
-    <input type="text" name="last_name" required/>
+  <label>Name*
+    <input type="text" name="name" required/>
   </label>
 
   <label>Email*
     <input type="email" name="email" required/>
+  </label>
+
+  <label class="website">Website
+    <input type="text" name="website" class="website" />
   </label>
 
     <label>Floorplan
@@ -35,10 +35,12 @@
   </label>
 
   <label>Comment
-    <textarea></textarea>
+    <textarea name="comment"></textarea>
   </label>
 
   <button type="submit" class="button small">Send</button>
+
+  <div id="form-response" class="hidden p-4 text-white mt-6"></div>
 
 </form>
 <?php return ob_get_clean(); });?>

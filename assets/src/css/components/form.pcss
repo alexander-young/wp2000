@@ -17,6 +17,13 @@ textarea {
   @apply appearance-none border-2 w-full py-2 px-3 text-gray-700 leading-tight;
 }
 
+input[type="text"],
+input[type="email"]{
+  &:valid{
+    @apply border-2 border-green-500;
+  }
+}
+
 #search {
   @apply border-r-0;
 }
@@ -27,4 +34,10 @@ textarea {
   select {
     @apply mb-2;
   }
+}
+
+.website {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
