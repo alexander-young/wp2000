@@ -1,39 +1,43 @@
-const contactForm = document.getElementById( 'contact-form' );
+export default contact_form = () => {
 
-if ( contactForm ) {
+	const contactForm = document.getElementById( 'contact-form' );
 
-	const responseContainer = document.getElementById( 'form-response' );
+	if ( contactForm ) {
 
-	contactForm.addEventListener( 'submit',  ( e ) => {
-		e.preventDefault();
+		const responseContainer = document.getElementById( 'form-response' );
 
-		responseContainer.style.display = 'none';
-		responseContainer.classList.remove( 'bg-red-500', 'bg-green-500' );
+		contactForm.addEventListener( 'submit',  ( e ) => {
+			e.preventDefault();
 
-		fetch( '/wp-admin/admin-ajax.php?action=send_contact_form', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams( new FormData( contactForm ) )
-		}).then( response => {
+			responseContainer.style.display = 'none';
+			responseContainer.classList.remove( 'bg-red-500', 'bg-green-500' );
 
-			return response.json();
+			fetch( '/wp-admin/admin-ajax.php?action=send_contact_form', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				body: new URLSearchParams( new FormData( contactForm ) )
+			}).then( response => {
 
-		}).then( jsonResponse => {
+				return response.json();
 
-			if ( jsonResponse.success ) {
-				responseContainer.classList.add( 'bg-green-500' );
-				responseContainer.innerHTML = 'We have received your message and will be in touch shortly.';
-				contactForm.reset();
-			} else {
-				responseContainer.classList.add( 'bg-red-500' );
-				responseContainer.innerHTML = jsonResponse.data.toString();
-			}
+			}).then( jsonResponse => {
 
-			responseContainer.style.display = 'block';
+				if ( jsonResponse.success ) {
+					responseContainer.classList.add( 'bg-green-500' );
+					responseContainer.innerHTML = 'We have received your message and will be in touch shortly.';
+					contactForm.reset();
+				} else {
+					responseContainer.classList.add( 'bg-red-500' );
+					responseContainer.innerHTML = jsonResponse.data.toString();
+				}
+
+				responseContainer.style.display = 'block';
+
+			});
 
 		});
+	}
 
-	});
 }
