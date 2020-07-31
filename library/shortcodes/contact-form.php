@@ -17,7 +17,7 @@
   </label>
 
   <label class="website">Website
-    <input type="text" name="website" class="website" />
+    <input type="text" name="website" class="website" tabindex="-1" autocomplete="off" />
   </label>
 
     <label>Floorplan

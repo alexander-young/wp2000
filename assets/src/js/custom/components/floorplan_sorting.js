@@ -1,18 +1,24 @@
-const archiveOrderby = document.getElementById( 'archive-orderby' );
-const archiveOrder = document.getElementById( 'archive-order' );
+const FloorplanSorting = () => {
 
-if ( archiveOrderby && archiveOrder ) {
+	const archiveOrderby = document.getElementById( 'archive-orderby' );
+	const archiveOrder = document.getElementById( 'archive-order' );
 
-	archiveOrderby.addEventListener( 'change', () => {
+	if ( archiveOrderby && archiveOrder ) {
 
-		const orderBy = archiveOrderby.options[archiveOrderby.selectedIndex].value;
+		archiveOrderby.addEventListener( 'change', () => {
 
-		if ( 'title' === orderBy ) {
-			archiveOrder.value = 'ASC';
-		} else {
-			archiveOrder.value = 'DESC';
-		}
+			const orderBy = archiveOrderby.options[archiveOrderby.selectedIndex].value;
 
-	});
+			if ( 'title' === orderBy ) {
+				archiveOrder.value = 'ASC';
+			} else {
+				archiveOrder.value = 'DESC';
+			}
+
+		});
+
+	}
 
 }
+
+export default FloorplanSorting;

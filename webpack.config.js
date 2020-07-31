@@ -29,10 +29,21 @@ module.exports = {
             options: {
               ident: 'postcss',
               plugins: [
+                require('postcss-import'),
                 require('tailwindcss'),
-                require('autoprefixer')
+                require('postcss-nested'),
+                require('autoprefixer'),
               ]
             }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
           }
         ]
       }

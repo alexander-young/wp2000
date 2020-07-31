@@ -62,6 +62,13 @@ function handle_contact_form(){
     }
   }
 
-  wp_send_json_success();
+  $email_body = "<strong>Name:</strong> " . $sanitized_fields['name'] . "<br>";
+  $email_body .= "<strong>Email:</strong> " . $sanitized_fields['email'] . "<br>";
+  $email_body .= "<strong>Floorplan:</strong> " . $sanitized_fields['floorplan'] . "<br>";
+  $email_body .= "<strong>Comment:</strong> " . $sanitized_fields['comment'] . "<br>";
+
+  $sent = wp_mail('dev-email@flywheel.local', 'New Floorplan Inquiry', $email_body, ['Content-Type: text/html; charset=UTF-8']);
+
+  wp_send_json_success([$sent]);
 
 }

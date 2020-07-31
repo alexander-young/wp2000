@@ -19,7 +19,7 @@ $floorplan = new \WP2K\Floorplan($post_id);
       </div>
       <div class="column text-primary text-base uppercase tracking-widest">
         <a href="#" class="mr-6" download><i class="las la-lg la-download"></i>Download Floor Plan</a>
-        <a href="<?php echo home_url('/contact') . '?floorplan=' . get_the_ID(); ?> " class="" download><i class="las la-lg la-question"></i>Request Info</a>
+        <a href="<?php echo home_url('/contact') . '?floorplan=' . get_the_ID(); ?> " class=""><i class="las la-lg la-question"></i>Request Info</a>
       </div>
     </div>
     <div class="inner-container">
@@ -38,6 +38,10 @@ $floorplan = new \WP2K\Floorplan($post_id);
           </div>
           <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
+
+          <!-- Add Navigation -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>

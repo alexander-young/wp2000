@@ -19,6 +19,27 @@ module.exports = {
 				'display': 'Lato, sans-serif',
 				'body': 'Lato, sans-serif'
 			}
-		}
-	}
+		},
+		typography: (theme) => ({
+			default: {
+				css: {
+					a: {
+						color: theme('colors.primary.default'),
+					},
+					h2: {
+						color: theme('colors.gray.700'),
+					},
+					h3: {
+						color: theme('colors.gray.700'),
+					},
+					h4: {
+						color: theme('colors.gray.700'),
+					},
+				}
+			}
+		})
+	},
+	plugins: [
+		require('@tailwindcss/typography')
+	]
 };

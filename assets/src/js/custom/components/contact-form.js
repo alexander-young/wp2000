@@ -1,4 +1,4 @@
-export default contact_form = () => {
+const ContactForm = () => {
 
 	const contactForm = document.getElementById( 'contact-form' );
 
@@ -41,3 +41,5 @@ export default contact_form = () => {
 	}
 
 }
+
+export default ContactForm;
