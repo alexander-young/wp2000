@@ -31,7 +31,7 @@ get_header();
 
 
   <div class="container">
-    <div class="inner-container flex">
+    <div class="inner-container flex flex-wrap">
       <div class="column w-full md:w-2/3">
         <div class="inner-container flex flex-wrap">
           <?php

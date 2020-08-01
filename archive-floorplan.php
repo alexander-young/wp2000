@@ -18,8 +18,8 @@ get_header();
         <label class="uppercase text-sm mr-2 font-bold">Sort By:</label>
         <div class="relative">
           <select name="orderby" id="archive-orderby" class="px-2 pb-1 pr-8 border-0 border-b-2">
-            <option value="date" <?php echo selected( $_GET['orderby'], 'date'); ?>>Newset</option>
-            <option value="title" <?php echo selected( $_GET['orderby'], 'title'); ?>>Name</option>
+            <option value="date" <?php echo selected( (isset($_GET['orderby']) && $_GET['orderby'] === 'date' )); ?>>Newset</option>
+            <option value="title" <?php echo selected((isset($_GET['orderby']) && $_GET['orderby'] === 'title')); ?>>Name</option>
           </select>
           <?php select_arrow(); ?>
         </div>

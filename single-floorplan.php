@@ -19,7 +19,7 @@ $floorplan = new \WP2K\Floorplan($post_id);
       </div>
       <div class="column text-primary text-base uppercase tracking-widest">
         <a href="#" class="mr-6" download><i class="las la-lg la-download"></i>Download Floor Plan</a>
-        <a href="<?php echo home_url('/contact') . '?floorplan=' . get_the_ID(); ?> " class=""><i class="las la-lg la-question"></i>Request Info</a>
+        <a href="<?php echo home_url('/contact') . '?fp=' . get_post_field('post_name', get_the_ID()); ?> " class=""><i class="las la-lg la-question"></i>Request Info</a>
       </div>
     </div>
     <div class="inner-container">

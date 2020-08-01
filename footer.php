@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
     <div class="w-full max-w-2xl mx-auto relative bg-gray-100 text-center py-12 md:py-14 -bottom-16 shadow-2xl">
       <h4 class="h2 mb-4">Ready To Start?</h4>
       <p class="mb-8 px-8 max-w-xl mx-auto">Take your design to the next level with Miya Interiors’ full-service design process. Your space is an extension of who you are, why not design it through-and-through?</p>
-      <a href="/" class="button">Contact Us <i class="las la-arrow-right"></i></a>
+      <a href="<?= home_url('/contact'); ?>" class="button">Contact Us <i class="las la-arrow-right"></i></a>
     </div>
   </div>
 

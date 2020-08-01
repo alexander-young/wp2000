@@ -12,7 +12,7 @@ get_header();
     <div class="container">
       <div class="ml-auto max-w-xl py-6 px-4 md:pl-20 md:pr-10 text-right text-white bg-transparent-black">
         <h1 class="h2 text-gray-100 mb-4">Your Dream Home Awaits</h1>
-        <a href="/">Browse Floorplans <i class="las la-arrow-right"></i></a>
+        <a href="<?= home_url('/floorplans'); ?>">Browse Floorplans <i class="las la-arrow-right"></i></a>
       </div>
     </div>
   </div> 
@@ -79,7 +79,7 @@ get_header();
         <h5 class="text-primary-light inline-block uppercase pb-3 text-sm tracking-widest border-b-2 border-primary mb-8">Full-Service Design</h5>
         <div class="h2 mb-8">Visualize Your Space</div>
         <p class="mb-10">Take your design to the next level with Miya Interiors’ full-service design process. Your space is an extension of who you are, why not design it through-and-through? Miya Interiors collaborates with you every step of the way to make your space 100% you.</p>
-        <a href="/" class="button">Learn More</a>
+        <a href="<?= home_url('/contact'); ?>" class="button">Learn More</a>
       </div>
     </div>
   </div>

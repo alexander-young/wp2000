@@ -19,8 +19,8 @@ defined('ABSPATH') || exit;
 	<div class="w-full shadow-md py-3">
 
 		<div class="container flex justify-between lg:justify-end py-2 text-gray-800 text-sm lg:text-base">
-			<a href="tel:123-456-7890" class="inline-block mr-8"><i class="las la-phone"></i> 123.456.7890</a>
-			<a href="mailto:me@example.com"><i class="hidden sm:inline-block las la-envelope"></i> me@example.com</a>
+			<a href="tel:123-456-7890" class="inline-block mr-8"><i class="text-primary las la-phone"></i> 123.456.7890</a>
+			<a href="mailto:me@example.com"><i class="hidden text-primary sm:inline-block las la-envelope"></i> me@example.com</a>
 		</div>
 
 		<div class="container">

@@ -1,5 +1,9 @@
 .menu-item {
-  @apply inline-block px-4 text-lg uppercase tracking-widest;
+  @apply inline-block px-4 text-lg uppercase tracking-widest transition duration-300;
+  &.current-menu-item,
+  &:hover {
+    @apply text-primary;
+  }
 }
 
 .menu-item:last-child {

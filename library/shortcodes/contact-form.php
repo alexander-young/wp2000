@@ -26,7 +26,7 @@
           <option value="false">- Select A Floor Plan -</option>
           <?php
             foreach ($all_floorplans as $floorplan) {
-              echo '<option value="'.$floorplan['slug'].'">'.$floorplan['title'].'</option>';
+              echo '<option value="'.$floorplan['slug'].'" '.selected((isset($_GET['fp']) && $_GET['fp'] === $floorplan['slug']), true, false).' >'.$floorplan['title'].'</option>';
             }
           ?>
         </select>
