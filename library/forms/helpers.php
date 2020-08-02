@@ -10,5 +10,38 @@ function select_arrow(){
   <?php
 }
 
+function wp2k_link($link_array = [], $classes = '', $arrow = false){
+
+  if (!empty($link_array) && isset($link_array['url'])) {
+
+    $link_url = $link_array['url'];
+    $link_title = $link_array['title'];
+    $link_target = $link_array['target'] ? $link_array['target'] : '_self';
+    ?>
+      <a
+        href="<?php echo esc_url($link_url); ?>"
+        class="<?php echo esc_attr($classes); ?>"
+        target="<?php echo esc_attr($link_target); ?>"
+      >
+        <?php 
+          echo esc_html($link_title);
+          if($arrow){
+            echo '<i class="las la-arrow-right"></i>';
+          }
+        ?>
+      </a>
+    <?php
+  }
+}
+
+function wp2k_image($image_array = [], $classes = '', $size = 'full'){
+
+  if(!empty($image_array)){
+    echo wp_get_attachment_image($image_array['ID'], $size, false, [
+      'class' => $classes,
+    ]);
+  }
+
+}
 
 ?>

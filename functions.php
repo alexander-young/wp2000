@@ -6,7 +6,9 @@ require 'library/custom-types.php';
 
 require 'library/scripts-styles.php';
 
-require 'library/floorplan.php';
+require 'library/class-options-page.php';
+
+require 'library/class-floorplan.php';
 
 require 'library/widgets/class-floorplan-cta.php';
 
