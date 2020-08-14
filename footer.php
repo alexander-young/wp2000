@@ -4,13 +4,22 @@ defined('ABSPATH') || exit;
 ?>
 
 </div><!-- #page we need this extra closing tag here -->
-
-  <div class="w-full relative bg-cover bg-center px-8" style="background-image: url('https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=650&w=1940);">
+  
+  <div class="w-full relative bg-cover bg-center px-8"
+  <?php 
+    if(is_numeric($attach_id = get_option('wp2k_footer_background'))){
+      $footer_bg = wp_get_attachment_image_src($attach_id, 'large');
+      ?>
+      style="background-image: url('<?php echo $footer_bg[0]; ?>');"
+      <?php
+    }
+  ?>
+  >
     <div class="absolute inset-0 bg-gradient-black"></div>
     <div class="w-full max-w-2xl mx-auto relative bg-gray-100 text-center py-12 md:py-14 -bottom-16 shadow-2xl">
-      <h4 class="h2 mb-4">Ready To Start?</h4>
-      <p class="mb-8 px-8 max-w-xl mx-auto">Take your design to the next level with Miya Interiors’ full-service design process. Your space is an extension of who you are, why not design it through-and-through?</p>
-      <a href="<?= home_url('/contact'); ?>" class="button">Contact Us <i class="las la-arrow-right"></i></a>
+      <h4 class="h2 mb-4"><?php echo get_option('wp2k_footer_heading'); ?></h4>
+      <p class="mb-8 px-8 max-w-xl mx-auto"><?php echo get_option('wp2k_footer_copy'); ?></p>
+      <a href="<?= home_url(get_option(' wp2k_footer_button_link ')); ?>" class="button"><?php echo get_option('wp2k_footer_button_text'); ?> <i class="las la-arrow-right"></i></a>
     </div>
   </div>
 
