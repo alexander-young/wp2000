@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
   </div>
 
 <div class="pt-32 pb-16 text-gray-100 bg-gray-800 text-center">
-  <ul class="mb-4">
+  <ul class="mb-4">¡
     <li class="inline-block"><i class="lab la-lg la-facebook-f"></i></li>
     <li class="inline-block"><i class="lab la-lg la-twitter"></i></li>
     <li class="inline-block"><i class="lab la-lg la-instagram"></i></li>

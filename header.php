@@ -19,8 +19,8 @@ defined('ABSPATH') || exit;
 	<div class="w-full shadow-md py-3">
 
 		<div class="container flex justify-between lg:justify-end py-2 text-gray-800 text-sm lg:text-base">
-			<a href="tel:123-456-7890" class="inline-block mr-8"><i class="text-primary las la-phone"></i> 123.456.7890</a>
-			<a href="mailto:me@example.com"><i class="hidden text-primary sm:inline-block las la-envelope"></i> me@example.com</a>
+			<a href="tel:<?php echo get_option('wp2k_header_phone');?>" class="inline-block mr-8"><i class="text-primary las la-phone"></i> <?php echo get_option('wp2k_header_phone');?></a>
+			<a href="mailto:<?php echo get_option('wp2k_header_email'); ?>"><i class="hidden text-primary sm:inline-block las la-envelope"></i> <?php echo get_option('wp2k_header_email'); ?></a>
 		</div>
 
 		<div class="container">
